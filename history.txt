@@ -1,0 +1,183 @@
+    1  helm
+    2  cd /usr/local/bin/
+    3  ls
+    4  cd helm 
+    5  mv linux-amd64/helm /usr/local/bin/helm
+    6  mv linux-amd64/helm /usr/bin
+    7  mv linux-amd64/helm /usr/bin/
+    8  mv linux-amd64/helm /usr/bin/helm
+    9  mv linux-amd64/helm /usr/bin/
+   10  pwd
+   11  cd /home/centos/vinoth/
+   12  mv linux-amd64/helm /usr/bin/
+   13  ls
+   14  cd helm-charts/
+   15  mv linux-amd64/helm /usr/bin/
+   16  ls
+   17  cd linux-amd64/
+   18  ls
+   19  ls -a
+   20  mv /usr/local/bin/helm /ust/bin/
+   21  ls
+   22  cd ..
+   23  ls
+   24  cd /usr/local/bin/
+   25  ls
+   26  cd /usr/local/bin/
+   27  ls
+   28  cd /home/centos/vinoth/
+   29  ls
+   30  cd helm-charts/
+   31  ls
+   32  ./configuring-helm.sh 
+   33  vi configuring-helm.sh 
+   34  ./configuring-helm.sh 
+   35  helm
+   36  vi configuring-helm.sh 
+   37  helm init --service-account tiller
+   38  ls
+   39  rm -rf helm-v2.12.2-linux-amd64.tar.gz.*
+   40  helm init --service-account tiller
+   41  ls
+   42  cat tiller.yaml 
+   43  bash helm init --service-account tiller
+   44  helm init --service-account tiller
+   45  helm init --service-account tiller --namespace kube-system
+   46  helm init --service-account tiller --namespaces kube-system
+   47  helm init
+   48  helm init --service-account tiller 
+   49  helm create kubernetes-dashboard
+   50  ls
+   51  cd kubernetes-dashboard/
+   52  ls
+   53  cd ..
+   54  cd kubernetes-dashboard/
+   55  helm package
+   56  cd ..
+   57  helm create kubernetes-dashboard
+   58  ls
+   59  helm create kubernetes-dashboard/
+   60  kubectl get ns
+   61  helm package  kubernetes-dashboard
+   62  ls
+   63  kubectl describe namespaces
+   64  kubectl describe namespaces kube-system
+   65  helm init
+   66  ls
+   67  helm  search kubernetes-dashboard
+   68  helm version
+   69  helm init
+   70  ls
+   71  vi tiller.yaml 
+   72  cat tiller-service-account.yml
+   73  helm upgrade --install
+   74  helm upgrade
+   75  helm init --service-account tiller --override spec.selector.matchLabels.'name'='tiller',spec.selector.matchLabels.'app'='helm' --output yaml | sed 's@apiVersion: extensions/v1beta1@apiVersion: apps/v1@' | kubectl apply -f -
+   76  helm init --service-account tiller 
+   77  helm init --canary-image --upgrade
+   78  helm init --output yaml | sed 's@apiVersion: extensions/v1beta1@apiVersion: apps/v1@' | sed 's@  replicas: 1@  replicas: 1\n  selector: {"matchLabels": {"app": "helm", "name": "tiller"}}@' | kubectl apply -f -
+   79  helm init --service-account tiller 
+   80  vi fix.sh
+   81  ./fix.sh
+   82  chmod -R 777 *
+   83  ./fix.sh 
+   84  helm init --service-account tiller 
+   85  kubectl create serviceaccount --namespace kube-system tiller
+   86  kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+   87  kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
+   88  cat tiller.yaml
+   89  kubectl apply -f tiller.yaml
+   90  kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
+   91  helm install --name demo mychart-0.1.1.tgz
+   92   kubectl get pods --all-namespaces
+   93  ls
+   94  pwd
+   95  cd mychart
+   96  ls
+   97  helm install --name demo mychart-0.1.1.tgz
+   98  helm package 
+   99  ls
+  100  helm package .
+  101  ls
+  102   helm install --name demo mychart-0.1.1.tgz 
+  103  ls
+  104  cd ..
+  105  ls
+  106  cat configuring-helm.sh 
+  107  helm --help
+  108  helm inspect .
+  109  cd mychart
+  110  helm inspect .
+  111  helm --help
+  112  helm release
+  113  helm release .
+  114  helm list
+  115  helm demo
+  116  ls
+  117  cd templates
+  118  ls
+  119  vi 09_thinknyx_test_user.yaml 
+  120  vi 04_dashboard-configmap.yaml
+  121  vi 05_dashboard-rbac.yaml
+  122  cd ..
+  123  helm package .
+  124  ls
+  125  helm upgrade .
+  126  helm upgrade /home/centos/vinoth/helm-charts/mychart/mychart-0.1.1.tgz
+  127  ls
+  128  helm upgrade .
+  129  helm upgrade 
+  130  helm upgrade 2.0 .
+  131  helm package mychart .
+  132  ls
+  133  helm package Chart.yaml .
+  134  helm package . mychart-0.1.2.tgz
+  135  helm package  mychart-0.1.2.tgz
+  136  helm upgrade -f Chart.yaml 
+  137  helm upgrade -f Chart.yaml  kubernetes-dashboard .
+  138  ls
+  139  cat Chart.yaml
+  140  helm upgrade mychart mychart
+  141  helm upgrade mychart .
+  142  vi Chart.yaml 
+  143  helm package .
+  144  helm upgrade mychart .
+  145  kubectl get all
+  146  kubectl get all --all-namespaces
+  147  helm list
+  148  kubectl get all -ns default
+  149  helm install .
+  150  helm list
+  151  ls
+  152  c
+  153  cat Chart.yaml 
+  154  helm list
+  155  helm delete interested-horse
+  156  helm list
+  157  ls
+  158  rm mychart-0.1.*
+  159  ls
+  160  rm -rf mychart-0.1.1.tgz
+  161  rm -rf mychart-0.1.2.tgz 
+  162  helm package .
+  163  helm install demo mychart-0.1.2.tgz 
+  164  helm install .  mychart-0.1.2.tgz 
+  165  helm install .
+  166  helm list
+  167  helm del --purge estranged-seagull
+  168  helm list
+  169  helm install mychart mychart-0.1.2.tgz 
+  170  helm install mychar .
+  171  helm install mychart mychart-0.1.2.tgz 
+  172  helm install --name  mychart mychart-0.1.2.tgz 
+  173  helm list
+  174  vi Chart.yaml 
+  175  helm upgrade --name mychart .
+  176  helm upgrade mychart .
+  177  helm list
+  178  helm history
+  179  helm history mychart
+  180  helm rollback mychart  1
+  181  helm history mychart
+  182  history
+  183  history >history.txt
